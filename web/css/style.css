@@ -1,0 +1,29 @@
+#creditos{
+    font-size: 10px;
+    text-align: right;
+}
+
+#center{
+    alignment-adjust: central;
+}
+
+#botao1{
+    
+}
+
+#h4error{
+    color: red;
+}
+
+body{
+    background: #000;
+    color: #fff;
+}
+
+h3{
+    color: #0275d8;
+}
+
+.btn{
+    background: #0275d8; 
+}
