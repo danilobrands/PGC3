@@ -115,7 +115,35 @@ public class UsuarioDAO implements GenericDAO{
         */
     }
     public void update(Object o){
-        
+        try {
+            if(o instanceof Usuario){
+                Usuario usuario = (Usuario)o;
+                String SQL = "UPDATE tb_usuario SET nome = ?, email = ?, senha = ? WHERE IdUsuario = ?";
+                PreparedStatement stm = dataSoucer.getConnection().prepareStatement(SQL);
+                stm.setString(1, usuario.getNome());
+                stm.setString(2, usuario.getEmail());
+                stm.setString(3, usuario.getSenha());
+                stm.setInt(4, usuario.getId());
+                stm.executeUpdate();
+                /*
+                ArrayList<Object> result = new ArrayList<>();
+                if(rs.next()){
+                    Usuario usuario = new Usuario();
+                    usuario.setId(rs.getInt("idUsuario"));
+                    usuario.setNome(rs.getString("nome"));
+                    usuario.setEmail(rs.getString("email"));
+                    usuario.setSenha(rs.getString("senha"));
+                    result.add(usuario);
+                }*/
+                stm.close();
+            }
+            else{
+                throw new RuntimeException("Invalid Object");
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println("Erro ao recuperar usuario - "+ex.getMessage());
+        }
     }
     public void delete(Object o){
         

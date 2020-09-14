@@ -7,10 +7,6 @@
     alignment-adjust: central;
 }
 
-#botao1{
-    
-}
-
 #h4error{
     color: red;
 }
@@ -26,4 +22,13 @@ h3{
 
 .btn{
     background: #0275d8; 
+}
+
+p {
+  margin: 0;
+  text-indent: 3ch;
+}
+
+.container-fluid{
+    alignment-adjust: central;
 }

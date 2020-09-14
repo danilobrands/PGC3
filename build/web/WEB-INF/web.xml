@@ -13,10 +13,6 @@
         <servlet-class>controller.EfetivaCadastroServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>NovoPersonagemServlet</servlet-name>
-        <servlet-class>controller.NovoPersonagemServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>EfetivaPersonagemServlet</servlet-name>
         <servlet-class>controller.EfetivaPersonagemServlet</servlet-class>
     </servlet>
@@ -36,6 +32,22 @@
             <max-request-size>418018841</max-request-size>
         </multipart-config>
     </servlet>
+    <servlet>
+        <servlet-name>GameLoginServlet</servlet-name>
+        <servlet-class>controller.GameLoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GamePersonagensServlet</servlet-name>
+        <servlet-class>controller.GamePersonagensServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AlteraCadastroServlet</servlet-name>
+        <servlet-class>controller.AlteraCadastroServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirPersonagemServlet</servlet-name>
+        <servlet-class>controller.ExcluirPersonagemServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/loginservlet</url-pattern>
@@ -49,16 +61,12 @@
         <url-pattern>/efetivacadastro</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>NovoPersonagemServlet</servlet-name>
-        <url-pattern>/novopersonagem</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>EfetivaPersonagemServlet</servlet-name>
         <url-pattern>/efetivapersonagem</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PersonagensServlet</servlet-name>
-        <url-pattern>/personagens</url-pattern>
+        <url-pattern>/personagens23</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>NovaSkinServlet</servlet-name>
@@ -67,6 +75,22 @@
     <servlet-mapping>
         <servlet-name>UploadSkinServlet</servlet-name>
         <url-pattern>/uploadskin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GameLoginServlet</servlet-name>
+        <url-pattern>/gameloginservlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GamePersonagensServlet</servlet-name>
+        <url-pattern>/gamepersonagensservlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlteraCadastroServlet</servlet-name>
+        <url-pattern>/alteracadastro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirPersonagemServlet</servlet-name>
+        <url-pattern>/ExcluirPersonagemServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

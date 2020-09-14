@@ -6,6 +6,7 @@
 package controller;
 
 import dao.DataSource;
+import dao.PersonagemDAO;
 import dao.SkinDAO;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -20,7 +21,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import model.Personagem;
 import model.Skin;
+import model.Usuario;
 
 /**
  *
@@ -34,12 +37,19 @@ public class UploadSkinServlet extends HttpServlet {
             throws ServletException, IOException {
         String paginaDestino = "/error.jsp";
         
-        
-        
         if(request.getSession().getAttribute("Usuario") != null){
             
             try {
+                Usuario usuario = (Usuario)request.getSession().getAttribute("Usuario");
                 String nome = request.getParameter("txtNome");
+                String forca = request.getParameter("txtForca");
+                String agilidade = request.getParameter("txtAgilidade");
+                String resistencia = request.getParameter("txtResistencia");
+                
+                System.out.println(nome);
+                System.out.println(forca);
+                System.out.println(agilidade);
+                System.out.println(resistencia);
                 
                 InputStream arqOriginal = request.getPart("fileIMG").getInputStream();
                 String nomeArquivoOriginal = request.getPart("fileIMG").getSubmittedFileName();
@@ -64,20 +74,29 @@ public class UploadSkinServlet extends HttpServlet {
                 arqOriginal.close();
                 arquivoIMG.close();
                 
-                Skin skin = new Skin();
-                skin.setNome(nome);
-                skin.setImage("skins/"+request.getPart("fileIMG").getSubmittedFileName());
+                Personagem personagem = new Personagem();
+                personagem.setNick(nome);
+                personagem.setForca(Integer.parseInt(forca));
+                personagem.setAgilidade(Integer.parseInt(agilidade));
+                personagem.setResistencia(Integer.parseInt(resistencia));
+                personagem.setUsuario(usuario);
+                
+                personagem.setSkin("skins/"+request.getPart("fileIMG").getSubmittedFileName());
+                System.out.println(request.getPart("fileIMG").getName());
+                
                 
                 DataSource dataSource = new DataSource();
-                SkinDAO skinDao = new SkinDAO(dataSource);
-                skinDao.create(skin);
+                PersonagemDAO personagemDao = new PersonagemDAO(dataSource);
+                personagemDao.create(personagem);
                 dataSource.getConnection().close();
+              
                 
                 paginaDestino = "/myaccount.jsp";
                 
                 
             } catch (Exception ex) {
-                System.out.println("Oiee**************************************");
+                System.out.println("Oiee falhou");
+                System.out.println(ex);
                 request.setAttribute("erroSTR", "Erro: Upload falhou!");
             }
             

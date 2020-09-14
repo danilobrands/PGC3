@@ -18,7 +18,8 @@ public class Personagem implements java.io.Serializable{
     private int forca;
     private int agilidade;
     private Usuario usuario;
-    private List<Skin> skins;
+    private String skin;
+    private int resistencia;
 
     /**
      * @return the id
@@ -58,7 +59,7 @@ public class Personagem implements java.io.Serializable{
     /**
      * @param forca the forca to set
      */
-    public void setForca(int forca) {
+    public void setForca(Integer forca) {
         this.forca = forca;
     }
 
@@ -72,22 +73,19 @@ public class Personagem implements java.io.Serializable{
     /**
      * @param agilidade the agilidade to set
      */
-    public void setAgilidade(int agilidade) {
+    public void setAgilidade(Integer agilidade) {
         this.agilidade = agilidade;
     }
 
     /**
      * @return the skins
      */
-    public List<Skin> getSkins() {
-        return skins;
+    public String getSkin() {
+        return skin;
     }
 
-    /**
-     * @param skins the skins to set
-     */
-    public void setSkins(List<Skin> skins) {
-        this.skins = skins;
+    public void setSkin(String skin) {
+        this.skin = skin;
     }
 
     /**
@@ -102,6 +100,20 @@ public class Personagem implements java.io.Serializable{
      */
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    /**
+     * @return the resistencia
+     */
+    public int getResistencia() {
+        return resistencia;
+    }
+
+    /**
+     * @param resistencia the resistencia to set
+     */
+    public void setResistencia(Integer resistencia) {
+        this.resistencia = resistencia;
     }
     
 }

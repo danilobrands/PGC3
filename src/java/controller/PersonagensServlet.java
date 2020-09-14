@@ -37,23 +37,25 @@ public class PersonagensServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
+        System.out.println("\nEntrou no PersonagensServlet\n");
         String pagindaDestino = "/index.html";
+        //System.out.printf("\nOi2");
         try {
+            //System.out.printf("\nOi3");
             Usuario usuario = (Usuario) request.getSession().getAttribute("Usuario");
+            //System.out.printf("usuariook");
             if (usuario != null) {
                 //Ta logado
-                if (usuario.getPersonagens() == null) {
+                //if (usuario.getPersonagens() == null) {
                     //Não tem personagens
-                    
-                    
-
                     //Recupero do banco
                     DataSource dataSource = new DataSource();
                     PersonagemDAO peDAO = new PersonagemDAO(dataSource);
-                    List<Object> lista = peDAO.read(usuario.getId());
+                    Integer userID = usuario.getId();
+                    List<Object> lista = peDAO.read(userID.toString());
+                    
                     dataSource.getConnection().close();
-
                     //passar por cada elemento que veio do banco e vou referências o usuário
                     if (lista != null) {
                         ArrayList<Personagem> meusPersonagens = new ArrayList<>();
@@ -61,12 +63,11 @@ public class PersonagensServlet extends HttpServlet {
                             Personagem novoPe = (Personagem) o;
                             novoPe.setUsuario(usuario);
                             meusPersonagens.add(novoPe);
-                            
                         }
                         usuario.setPersonagens(meusPersonagens);
                     }
-
-                }
+                //}
+                System.out.println("\nPersonagens Recuperados com Sucesso\n");
                 request.getSession().setAttribute("Usuario", usuario);
                 pagindaDestino = "/mycharacters.jsp";
             }

@@ -57,6 +57,9 @@ public class LoginServlet extends HttpServlet {
             if(res != null && res.size()>0){
                 pagina = "/myaccount.jsp";
                 request.getSession().setAttribute("Usuario", res.get(0));
+                System.out.println("Login no sistema - "+ res.get(0).toString());
+                //request.getSession().invalidate();
+             
             }
             else{
                 request.setAttribute("erroSTR", "Usuario / Senha Invalidos");

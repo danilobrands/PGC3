@@ -9,8 +9,8 @@ package model;
  *
  * @author danil
  */
-public class Skin implements java.io.Serializable{
-    
+public class Skin implements java.io.Serializable {
+
     private int id;
     private String nome;
     private String image;
@@ -56,5 +56,9 @@ public class Skin implements java.io.Serializable{
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
+
+    public String ToString() {
+        return id + " - " + nome + " - " + image;
+    }
+
 }

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>PGCII - Game with HATEOS</title>
+    <title>PGC - Game with HATEOAS</title>
 
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -20,7 +20,7 @@
                 <div class="col-md-12">
 
                     <h3 class="text-center">
-                        Game with HateOS
+                        Game with HATEOAS
                     </h3>
                 </div>
                 

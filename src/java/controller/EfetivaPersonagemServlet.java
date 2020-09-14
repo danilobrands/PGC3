@@ -51,10 +51,12 @@ public class EfetivaPersonagemServlet extends HttpServlet {
                 PersonagemDAO peDAO = new PersonagemDAO(dataSource);
                 peDAO.create(p);
                 
+                
                 if(usuario.getPersonagens() == null){
                     usuario.setPersonagens(new ArrayList<>());
                 }
                 usuario.getPersonagens().add(p);
+                //usuario.addPersonagem(p);
                 request.getSession().setAttribute("Usuario", usuario);
                 paginaDestino = "/mycharacters.jsp";
                 

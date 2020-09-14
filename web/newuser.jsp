@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>PGCII - Game with HATEOS</title>
+        <title>PGC - Game with HATEOAS</title>
 
 
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -14,6 +14,12 @@
 
     </head>
     <body>
+
+        <script type="text/javascript">
+            function TelaInicial() {
+                location.href = "index.html";
+            }
+        </script>
 
         <div class="container-fluid">
             <div class="row">
@@ -30,7 +36,7 @@
                 <div class="col-md-12">
 
                     <h3 class="text-center">
-                        Game with HateOS
+                        Game with HATEOAS
                     </h3>
                 </div>
             </div>
@@ -39,7 +45,8 @@
                 <div class="col-md-12">
                     <h4 class="text-center">
                         Novo Usuário                    
-                    </h4></div>            
+                    </h4>
+                </div>            
             </div>
 
             <div class="row">
@@ -69,16 +76,26 @@
                             <input type="password" class="form-control" id="exampleInputPassword1" name="txtSenha">
                         </div>
 
-                        <button type="submit" class="btn btn-primary">
-                            Cadastrar
-                        </button>
-                        
+                        <div>
+                            <button type="submit" class="btn btn-primary">
+                                Cadastrar
+                            </button>
+
+                            <input type="button" value="Voltar" onClick="TelaInicial()" class="btn btn-primary">
+
+                        </div>
+
+
                     </form>
+
                 </div>
+
                 <div class="col-md-2">
                 </div>
             </div>
         </div>
+
+
 
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

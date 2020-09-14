@@ -18,6 +18,10 @@ public class Usuario implements java.io.Serializable{
     private String email;
     private String senha;
     private List<Personagem> personagens;
+    
+    public void addPersonagem(Personagem p){
+        personagens.add(p);
+    }
 
     /**
      * @return the id
@@ -91,6 +95,14 @@ public class Usuario implements java.io.Serializable{
     
     public String ToString(){
         return id + " - " + nome + " - " + email;
+    }
+    
+    public String getLinkPersonagens(){
+        String resposta = "";
+        for (Personagem personagem : this.personagens){
+            resposta += personagem.getSkin();
+        }
+        return resposta;
     }
     
     

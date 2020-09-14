@@ -21,30 +21,22 @@ import model.Usuario;
  *
  * @author danil
  */
-public class EfetivaCadastroServlet extends HttpServlet {
+public class AlteraCadastroServlet extends HttpServlet {
 
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //receber dados do formulário
-        //cirar um objeto usuario com estes dados (que ainda não tem id)
-        //isntanciar o datasource e o dao
+        
+        
+        Usuario usuario = (Usuario) request.getSession().getAttribute("Usuario");
+        
+        System.out.println("Alterando cadastro do usuario: " + usuario.getId());
 
         String pagina = "/myaccount.jsp";
         String nome = request.getParameter("txtNome");
         String email = request.getParameter("txtEmail");
         String senha = request.getParameter("txtSenha");
         
-        Usuario usuario = new Usuario();
         
         usuario.setNome(nome);
         usuario.setSenha(senha);
@@ -54,7 +46,7 @@ public class EfetivaCadastroServlet extends HttpServlet {
         
         DataSource datasource = new DataSource();
         UsuarioDAO usuarioDAO = new UsuarioDAO(datasource);
-        usuarioDAO.create(usuario);
+        usuarioDAO.update(usuario);
         try {
             datasource.getConnection().close();
         } catch (SQLException ex) {
@@ -72,7 +64,5 @@ public class EfetivaCadastroServlet extends HttpServlet {
         dispatcher.forward(request, response);
         
     }
-
-    
 
 }
